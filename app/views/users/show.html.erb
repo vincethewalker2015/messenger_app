@@ -1,9 +1,25 @@
 <div class="container">
     <div class="row">
-  <div class="col-md-12">
-    <h2 align="center" class="headertext">User</h2>
-       <%= @user.name %> <br />
-       <%= link_to "Destroy Me", user_path(@user), method: :delete,  class: "btn btn-danger" %>
+    <h2 align="center" class="headertext">User: <%= @user.name %></h2>
+    <div class="col-md-12">
+       <div align="center">
+           <% if @user.messages.count > 0 %>
+               <div class="row">
+                  <div class="col-md-4 col-md-offset-4">
+                      <h3 align="center">Messages: <span id="messages"> <%= @user.messages.count %> </span></h3>
+                  </div> 
+               </div>
+           <% else %>
+               <div class="row">
+                   <div class="col-md-4 col-md-offset-4">
+                       <h3 align="center">No Messages Yet</h3>
+                   </div>
+               </div>
+           <% end %> <br /> <hr />
+         <%= link_to "Edit my Details", edit_user_path(@user),  class: "btn btn-warning" %>
+         <%= link_to "Create Message", new_message_path, class: "btn btn-success" %>
+         <%= link_to "Destroy Me", user_path(@user), method: :delete,  class: "btn btn-danger" %>
+       </div>
   </div>
 </div>
 

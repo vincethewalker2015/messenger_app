@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div align ="center">
+            <h3 class="headertext">Messages</h3>
+            
+                <div align="center">
+                    <div class="message-box">
+                        <% @messages.each do |message| %>
+                            <div class="well well-sm">
+                                <p><span class="message-font"><%= message.description %></span><br />
+                                   <span class="quiet pull-right"><small>Created: <%= time_ago_in_words(message.created_at) %> ago
+                                                    by <%= message.user_messages.name %></small></span> </p>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
